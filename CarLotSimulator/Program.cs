@@ -7,6 +7,8 @@ namespace CarLotSimulator
     {
         static void Main(string[] args)
         {
+
+            CarLot carLot = new CarLot();
             //TODO
 
             //Create a seperate class file called Car
@@ -27,19 +29,32 @@ namespace CarLotSimulator
             Volvo.Make = "Volvo";
             Volvo.Model = "S60";
             Volvo.IsDriveable = true;
-            Volvo.EngineNoises =Volvo.MakeEngineNoise("Veeeee,psh,Veeeeee");
-            Volvo.HonkNoise = Volvo.MakeHonkNoise("Meeeeep meeeeep");
-            Console.WriteLine($"{Volvo.Year}, {Volvo.Model}, {Volvo.Make}, {Volvo.IsDriveable}, {Volvo.EngineNoises}, {Volvo.HonkNoise}");
+            Volvo.EngineNoises = "wwhhhheeeeeeeeen";
+            Volvo.HonkNoise = "Meeeeep meeeeep";
+            //Console.WriteLine($"{Volvo.Year}, {Volvo.Model}, {Volvo.Make}, {Volvo.IsDriveable}, {Volvo.EngineNoises}, {Volvo.HonkNoise}");
+            Console.WriteLine(Volvo.MakeEngineNoise(Volvo.EngineNoises));
+            Console.WriteLine(Volvo.MakeEngineNoise(Volvo.HonkNoise));
 
-            Car Ford = new Car() { Year = 2020, Make = "Ford", Model = "Mustang", IsDriveable = true };
-            Ford.EngineNoises = Ford.MakeEngineNoise("Vroooooon");
-            Ford.HonkNoise = Ford.MakeHonkNoise("Haahhhnk");
-            Console.WriteLine($"{Ford.Year}, {Ford.Make} , {Ford.Model} , {Ford.EngineNoises}, {Ford.HonkNoise}, {Ford.IsDriveable}");
+
+            Car Ford = new Car() { Year = 2020, Make = "Ford", Model = "Mustang", EngineNoises = "Vroom", HonkNoise = "Haahhhnk" , IsDriveable = true };
+            Console.WriteLine(Ford.MakeEngineNoise(Ford.EngineNoises));
+            Console.WriteLine(Ford.MakeHonkNoise(Ford.HonkNoise));
+            //Console.WriteLine($"{Ford.Year}, {Ford.Make} , {Ford.Model} , {Ford.EngineNoises}, {Ford.HonkNoise}, {Ford.IsDriveable}");
 
             Car Honda = new Car(1988, "Honda", "SI", "Veeeeeteechchh", "bip, bip", true);
-            Console.WriteLine($"{Honda.Year}, {Honda.Make} , {Honda.Model}, {Honda.EngineNoises}, {Honda.HonkNoise}, {Honda.IsDriveable}" );
+            //Console.WriteLine($"{Honda.Year}, {Honda.Make} , {Honda.Model}, {Honda.EngineNoises}, {Honda.HonkNoise}, {Honda.IsDriveable}" );
+            Console.WriteLine(Honda.MakeEngineNoise(Honda.EngineNoises));
+            Console.WriteLine(Honda.MakeHonkNoise(Honda.HonkNoise));
+            carLot.carList.Add(Volvo);
+            carLot.carList.Add(Ford);
+            carLot.carList.Add(Honda);
 
 
+
+            foreach(Car car in carLot.carList)
+            {
+                Console.WriteLine($"Year = {car.Year}, Make = {car.Make}, Model = {car.Model}");
+            }
             //*************BONUS X 2*************//
 
             //Create a CarLot class
@@ -47,20 +62,11 @@ namespace CarLotSimulator
             //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
             //At the end iterate through the list printing each of car's Year, Make, and Model to the console
 
-            CarLot Inventory = new CarLot();
-           
+            
 
 
 
-            List<string> CarsList = new List<string>();
-            CarsList.Add(Inventory.Cars("Toyota", "Supra", 1999));
-            CarsList.Add(Inventory.Cars("Honda", "Civic", 2019));
-            CarsList.Add(Inventory.Cars("Chevy", "C10 Cyclone", 1992));
-
-            foreach (var car in CarsList)
-            {
-                Console.WriteLine(car);
-            }
+            
         }
     }
 }
