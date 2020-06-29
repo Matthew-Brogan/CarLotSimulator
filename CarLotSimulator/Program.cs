@@ -55,6 +55,7 @@ namespace CarLotSimulator
             List<string> CarsList = new List<string>();
             CarsList.Add(Inventory.Cars("Toyota", "Supra", 1999));
             CarsList.Add(Inventory.Cars("Honda", "Civic", 2019));
+            CarsList.Add(Inventory.Cars("Chevy", "C10 Cyclone", 1992));
 
             foreach (var car in CarsList)
             {
